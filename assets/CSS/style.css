@@ -1,0 +1,207 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.wrapperColors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(#249688 15%, #d7dbd7 15%);
+  overflow: hidden;
+}
+.main-container {
+  display: flex;
+  width: 80%;
+  min-width: 800px;
+  margin: 0 auto;
+  height: 95%;
+  background-color: #fff;
+}
+.aside-container {
+  width: 35%;
+  border: 1px solid #000;
+}
+.main-app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 65%;
+  border: 1px solid #000;
+}
+
+/* inner content aside and main app content  */
+.aside-top-bar,
+.main-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 70px;
+}
+.main-text {
+  width: 100%;
+  height: calc(100% - 140px);
+  background-image: url(/assets/img/mine.jpg);
+  overflow: auto;
+}
+.aside-notify {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  background-color: #8edafc;
+}
+.aside-search {
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+}
+
+/* account */
+.account {
+  display: flex;
+  align-items: center;
+}
+.account-settings i {
+  padding: 5px;
+  color: #b8b9b8;
+  font-size: 1.2rem;
+}
+
+/* notification */
+.notifyIcon {
+  background-color: #fff;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 1.4rem;
+  border-radius: 50%;
+  color: #8edafc;
+}
+.notify-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 20px;
+}
+.notify-link {
+  font-size: 0.9rem;
+  text-decoration: underline;
+  color: #d7dbd7;
+}
+
+/* contact card and notify section*/
+.contact-card {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  border-bottom: 1px solid rgba(129, 126, 126, 0.2);
+  cursor: pointer;
+}
+.contact-card:last-child {
+  border-bottom: none;
+}
+.account-img,
+.contact-avatar,
+.notify-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+}
+.account-img img,
+.contact-avatar img,
+.notifyIcon i {
+  max-width: 60px;
+  max-height: 60px;
+  border-radius: 50%;
+}
+
+.aside-contacts {
+  height: calc(100% - 190px);
+  overflow: auto;
+}
+.aside-contact-chat,
+.notify-text {
+  width: calc(100% - 80px);
+  position: relative;
+  padding-top: 10px;
+}
+.contact-name {
+  font-size: 1.3rem;
+}
+.contact-last-text {
+  font-size: 0.8rem;
+}
+.chat-date {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 0.7rem;
+  color: #818181;
+}
+.contact-card.active {
+  background-color: rgba(189, 186, 186, 0.3);
+}
+
+/* main contact chat */
+.main-contact {
+  display: flex;
+}
+.container-chat {
+  margin: 50px;
+}
+
+/* main bottom bar */
+.main-bottom-bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 70px;
+  background-color: #f3eeea;
+  line-height: 70px;
+}
+.emoji,
+.voice-message {
+  margin: 0 30px;
+}
+.emoji i,
+.voice-message i {
+  font-size: 1.4rem;
+}
+
+.text-message {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 250px;
+  min-height: 40px;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+}
+.text-message span {
+  margin: 5px;
+}
+
+.text-date {
+  position: absolute;
+  bottom: 2px;
+  right: 5px;
+  font-size: 0.6rem;
+  color: #979997;
+}
+
+.sent {
+  float: right;
+  clear: both;
+  background-color: #d5f9b9;
+}
+.received {
+  float: left;
+  clear: both;
+  background-color: #fff;
+}
