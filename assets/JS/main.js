@@ -88,10 +88,44 @@ const app = new Vue({
       },
     ],
     counter: 0,
+    newMessage: "",
+    messageSnippet: "",
   },
-  
 
   methods: {
-
-  }
+    //function to sent a message to contact
+    sendMessage(counter) {
+      let messageSent = {
+        date: timeStamp(),
+        message: this.newMessage.trim(),
+        status: "sent",
+      };
+      if (this.newMessage != "") {
+        this.contacts[counter].messages.push(messageSent);
+        this.newMessage = "";
+        setTimeout(() => {
+          let pcMessage = {
+            date: timeStamp(),
+            message: "Ok!",
+            status: "received",
+          };
+          this.contacts[counter].messages.push(pcMessage);
+        }, 2000);
+      }
+    },
+    // function to make last message send appear in the contacts section
+    lastMessageSent(index) {
+      let shortMsg= '';
+      let lastMessage = this.contacts[index].messages[this.contacts[index].messages.length - 1].message;
+        if(lastMessage.length >= 12){
+          shortMsg = lastMessage.substring(0,12) + '...';
+        }
+      return shortMsg;
+    }
+  },
 });
+
+let timeStamp = function(){
+  return new Date().toLocaleString().replace(',','');
+}
+

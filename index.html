@@ -30,9 +30,9 @@
     <div id="app">
       <div class="wrapperColors">
         <div class="main-container">
-          <!-- Side bar with account search bar and notifications -->
+          <!-- Side-bar-Section -->
           <div class="aside-container">
-            <!-- account section -->
+            <!-- account-section -->
             <div class="aside-top-bar">
               <div class="account">
                 <div class="account-img">
@@ -48,7 +48,7 @@
                 <i class="fas fa-ellipsis-v"></i>
               </div>
             </div>
-            <!-- notification section -->
+            <!-- notification-section -->
             <div class="aside-notify">
               <div class="notify-icon">
                 <div class="notifyIcon">
@@ -62,7 +62,7 @@
                 <p class="notify-link">Attiva notifiche desktop</p>
               </div>
             </div>
-            <!-- search bar -->
+            <!-- search-bar -->
             <div class="aside-search">
               <div class="input-group p-1">
                 <span class="input-group-text" id="basic-addon1">
@@ -77,7 +77,7 @@
                 />
               </div>
             </div>
-            <!-- Contacts section -->
+            <!-- Contacts-section -->
             <div class="aside-contacts">
               <div 
                 v-for="(contact, index) in contacts" 
@@ -89,7 +89,7 @@
                 </div>
                 <div class="aside-contact-chat">
                   <span class="contact-name">{{contact.name}}</span>
-                  <p class="contact-last-text">lorem lorem lorem ...</p>
+                  <p class="contact-last-text">{{lastMessageSent(index)}}</p>
                   <div class="chat-date">
                     {{contact.messages[contact.messages.length-1].date}}
                   </div>
@@ -97,9 +97,9 @@
               </div>
             </div>
           </div>
-          <!-- main text section -->
+          <!-- main-text-section -->
           <div class="main-app-container">
-            <!-- Chat settings -->
+            <!-- Chat-settings -->
             <div class="main-top-bar">
               <div class="main-contact">
                 <div class="contact-avatar">
@@ -118,7 +118,7 @@
                 <i class="fas fa-ellipsis-v"></i>
               </div>
             </div>
-            <!-- central chat room -->
+            <!-- central-chat-room -->
             <div class="main-text">
               <div 
                 v-for="message in contacts[counter].messages"
@@ -131,13 +131,15 @@
                 </div>
               </div>
             </div>
-            <!-- text input  -->
+            <!-- text-input  -->
             <div class="main-bottom-bar">
               <div class="emoji">
                 <i class="far fa-smile"></i>
               </div>
               <div class="input-group">
                 <input
+                  v-model="newMessage"
+                  @keyup.enter="sendMessage(counter)"
                   type="text"
                   class="form-control"
                   placeholder="Scrivi un messaggio"
