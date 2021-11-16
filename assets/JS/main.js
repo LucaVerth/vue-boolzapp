@@ -89,7 +89,6 @@ const app = new Vue({
     ],
     counter: 0,
     newMessage: "",
-    messageSnippet: "",
   },
 
   methods: {
@@ -117,7 +116,9 @@ const app = new Vue({
     lastMessageSent(index) {
       let shortMsg= '';
       let lastMessage = this.contacts[index].messages[this.contacts[index].messages.length - 1].message;
-        if(lastMessage.length >= 12){
+        if(lastMessage.length < 12){
+          shortMsg = lastMessage;
+        }else{
           shortMsg = lastMessage.substring(0,12) + '...';
         }
       return shortMsg;
