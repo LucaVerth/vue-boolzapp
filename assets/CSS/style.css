@@ -21,14 +21,14 @@ body {
 }
 .aside-container {
   width: 35%;
-  border: 1px solid #000;
+  border: 1px solid rgb(185, 185, 185);
 }
 .main-app-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 65%;
-  border: 1px solid #000;
+  border: 1px solid rgb(185, 185, 185);
 }
 
 /* inner content aside and main app content  */

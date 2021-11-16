@@ -79,16 +79,20 @@
             </div>
             <!-- Contacts section -->
             <div class="aside-contacts">
-              <div v-for="(contact, index) in contacts" class="contact-card ">
+              <div 
+                v-for="(contact, index) in contacts" 
+                @click="counter = index" 
+                :class="{active : counter == index}"
+                class="contact-card">
                 <div class="contact-avatar">
                   <img :src="contact.avatar" alt="contact-avatar" />
                 </div>
                 <div class="aside-contact-chat">
                   <span class="contact-name">{{contact.name}}</span>
-                  <p class="contact-last-text">
-                    lorem lorem lorem ...
-                  </p>
-                  <div class="chat-date">{{contact.messages[contact.messages.length-1].date}}</div>
+                  <p class="contact-last-text">lorem lorem lorem ...</p>
+                  <div class="chat-date">
+                    {{contact.messages[contact.messages.length-1].date}}
+                  </div>
                 </div>
               </div>
             </div>
@@ -99,12 +103,12 @@
             <div class="main-top-bar">
               <div class="main-contact">
                 <div class="contact-avatar">
-                  <img src="assets/img/avatar_1.jpg" alt="" />
+                  <img :src="contacts[counter].avatar" alt="" />
                 </div>
                 <div class="aside-contact-chat">
-                  <span class="contact-name">Luca</span>
+                  <span class="contact-name">{{contacts[counter].name}}</span>
                   <p class="contact-last-text">
-                    Ultimo accesso oggi alle 10/10/21 16:15:56
+                    Ultimo accesso oggi alle <span>{{contacts[counter].messages[contacts[counter].messages.length - 1].date}}</span>
                   </p>
                 </div>
               </div>
@@ -116,17 +120,14 @@
             </div>
             <!-- central chat room -->
             <div class="main-text">
-              <div class="container-chat">
-                <div class="text-message sent">
-                  <span
-                    >Tutto fatto! il testo è un po lungo per controllare che
-                    tutti gli elementi ci stiano!</span
-                  >
-                  <div class="text-date">10/10/21 16:15:56</div>
-                </div>
-                <div class="text-message received">
-                  <span>Hai portato a spasso il cane?</span>
-                  <div class="text-date">10/10/21 16:15:56</div>
+              <div 
+                v-for="message in contacts[counter].messages"
+                class="container-chat">
+                <div
+                  :class="message.status" 
+                  class="text-message">
+                  <span>{{message.message}}</span>
+                  <div class="text-date">{{message.date}}</div>
                 </div>
               </div>
             </div>
