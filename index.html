@@ -69,11 +69,11 @@
                   <i class="fas fa-search"></i>
                 </span>
                 <input
+                  v-model="searchName"
                   type="text"
                   class="form-control"
                   placeholder="Cerca o inizia una nuova chat"
-                  aria-label="Username"
-                  aria-describedby="basic-addon1"
+                  @keyup.enter="searchContact()"
                 />
               </div>
             </div>

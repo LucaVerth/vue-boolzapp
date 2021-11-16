@@ -89,6 +89,7 @@ const app = new Vue({
     ],
     counter: 0,
     newMessage: "",
+    searchName: "",
   },
 
   methods: {
@@ -122,11 +123,17 @@ const app = new Vue({
           shortMsg = lastMessage.substring(0,12) + '...';
         }
       return shortMsg;
+    },
+    // Search for contact in contacts list
+    searchContact(){
+      let name = this.searchName;
+      for(let i = 0; i < this.contacts.length; i++){
+        arrNames = this.contacts[i].name;
+        
+      }
     }
   },
 });
 
-let timeStamp = function(){
-  return new Date().toLocaleString().replace(',','');
-}
+let timeStamp = () => new Date().toLocaleString().replace(',', '')
 
