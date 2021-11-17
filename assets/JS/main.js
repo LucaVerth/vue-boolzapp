@@ -124,14 +124,14 @@ const app = new Vue({
         }
       return shortMsg;
     },
-    // Search for contact in contacts list
-    searchContact(){
-      let name = this.searchName;
-      for(let i = 0; i < this.contacts.length; i++){
-        arrNames = this.contacts[i].name;
-        
-      }
-    }
+  },
+
+  computed: {
+    filteredItems(){
+      return this.contacts.filter(contact => {
+        return contact.name.toLowerCase().indexOf(this.searchName.toLowerCase()) > -1;
+      })
+    },
   },
 });
 

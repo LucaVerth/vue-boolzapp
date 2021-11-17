@@ -73,14 +73,13 @@
                   type="text"
                   class="form-control"
                   placeholder="Cerca o inizia una nuova chat"
-                  @keyup.enter="searchContact()"
                 />
               </div>
             </div>
             <!-- Contacts-section -->
             <div class="aside-contacts">
               <div 
-                v-for="(contact, index) in contacts" 
+                v-for="(contact, index) in filteredItems" 
                 @click="counter = index" 
                 :class="{active : counter == index}"
                 class="contact-card">
