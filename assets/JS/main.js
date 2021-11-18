@@ -115,25 +115,30 @@ const app = new Vue({
     },
     // function to make last message send appear in the contacts section
     lastMessageSent(index) {
-      let shortMsg= '';
-      let lastMessage = this.contacts[index].messages[this.contacts[index].messages.length - 1].message;
-        if(lastMessage.length < 12){
-          shortMsg = lastMessage;
-        }else{
-          shortMsg = lastMessage.substring(0,12) + '...';
-        }
+      let shortMsg = "";
+      let lastMessage =
+        this.contacts[index].messages[this.contacts[index].messages.length - 1]
+          .message;
+      if (lastMessage.length < 12) {
+        shortMsg = lastMessage;
+      } else {
+        shortMsg = lastMessage.substring(0, 12) + "...";
+      }
       return shortMsg;
     },
-  },
-
-  computed: {
-    filteredItems(){
-      return this.contacts.filter(contact => {
-        return contact.name.toLowerCase().indexOf(this.searchName.toLowerCase()) > -1;
-      })
+    filteredItems() {
+      for (let contact of this.contacts) {
+        if (
+          !contact.name.toLowerCase().includes(this.searchName.toLowerCase())
+        ) {
+          contact.visible = false;
+        }
+        if (this.searchName === "") {
+          contact.visible = true;
+        }
+      }
     },
   },
 });
 
-let timeStamp = () => new Date().toLocaleString().replace(',', '')
-
+let timeStamp = () => new Date().toLocaleString().replace(",", "");

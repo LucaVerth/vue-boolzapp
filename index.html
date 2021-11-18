@@ -71,6 +71,7 @@
                 <input
                   v-model="searchName"
                   type="text"
+                  @keyup="filteredItems()"
                   class="form-control"
                   placeholder="Cerca o inizia una nuova chat"
                 />
@@ -78,11 +79,13 @@
             </div>
             <!-- Contacts-section -->
             <div class="aside-contacts">
-              <div 
-                v-for="(contact, index) in filteredItems" 
-                @click="counter = index" 
+              <div
+                v-for="(contact, index) in contacts"
+                @click="counter = index"
                 :class="{active : counter == index}"
-                class="contact-card">
+                class="contact-card"
+                v-if="(contact.visible === true) || (searchName === '')"
+              >
                 <div class="contact-avatar">
                   <img :src="contact.avatar" alt="contact-avatar" />
                 </div>
@@ -107,7 +110,11 @@
                 <div class="aside-contact-chat">
                   <span class="contact-name">{{contacts[counter].name}}</span>
                   <p class="contact-last-text">
-                    Ultimo accesso oggi alle <span>{{contacts[counter].messages[contacts[counter].messages.length - 1].date}}</span>
+                    Ultimo accesso oggi alle
+                    <span
+                      >{{contacts[counter].messages[contacts[counter].messages.length
+                      - 1].date}}</span
+                    >
                   </p>
                 </div>
               </div>
@@ -119,12 +126,11 @@
             </div>
             <!-- central-chat-room -->
             <div class="main-text">
-              <div 
+              <div
                 v-for="message in contacts[counter].messages"
-                class="container-chat">
-                <div
-                  :class="message.status" 
-                  class="text-message">
+                class="container-chat"
+              >
+                <div :class="message.status" class="text-message">
                   <span>{{message.message}}</span>
                   <div class="text-date">{{message.date}}</div>
                 </div>
