@@ -126,6 +126,7 @@ const app = new Vue({
       }
       return shortMsg;
     },
+    // search bar function, if the input string = contact name display relative contact
     filteredItems() {
       for (let contact of this.contacts) {
         if (
