@@ -49,7 +49,7 @@ body {
 .aside-notify {
   display: flex;
   width: 100%;
-  height: 70px;
+  height: 80px;
   background-color: #8edafc;
 }
 .aside-search {
@@ -67,6 +67,11 @@ body {
   padding: 5px;
   color: #b8b9b8;
   font-size: 1.2rem;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.account-name{
+  font-weight: bold;
 }
 
 /* notification */
@@ -86,10 +91,15 @@ body {
   justify-content: center;
   padding-top: 20px;
 }
+.notify-message{
+  padding-top: 10px;
+  font-weight: bold;
+}
 .notify-link {
   font-size: 0.9rem;
   text-decoration: underline;
-  color: #d7dbd7;
+  color: #424242ad;
+  cursor: pointer;
 }
 
 /* contact card and notify section*/
@@ -120,7 +130,7 @@ body {
 }
 
 .aside-contacts {
-  height: calc(100% - 190px);
+  height: calc(100% - 200px);
   overflow: auto;
 }
 .aside-contact-chat,
@@ -170,7 +180,9 @@ body {
 }
 .emoji i,
 .voice-message i {
+  color: rgb(88, 88, 88);
   font-size: 1.4rem;
+  cursor: pointer;
 }
 
 .text-message {

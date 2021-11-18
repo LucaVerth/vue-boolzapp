@@ -101,7 +101,7 @@
           </div>
           <!-- main-text-section -->
           <div class="main-app-container">
-            <!-- Chat-settings -->
+            <!-- Chat-top-settings -->
             <div class="main-top-bar">
               <div class="main-contact">
                 <div class="contact-avatar">
@@ -126,11 +126,12 @@
             </div>
             <!-- central-chat-room -->
             <div class="main-text">
-              <div
-                v-for="message in contacts[counter].messages"
-                class="container-chat"
-              >
-                <div :class="message.status" class="text-message">
+              <div class="container-chat">
+                <div 
+                  v-for="message in contacts[counter].messages"
+                  :class="message.status" 
+                  class="text-message"
+                  >
                   <span>{{message.message}}</span>
                   <div class="text-date">{{message.date}}</div>
                 </div>
