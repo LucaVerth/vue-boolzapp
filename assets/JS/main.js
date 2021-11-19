@@ -130,12 +130,11 @@ const app = new Vue({
     filteredItems() {
       for (let contact of this.contacts) {
         if (
-          !contact.name.toLowerCase().includes(this.searchName.toLowerCase())
+          contact.name.toLowerCase().includes(this.searchName.toLowerCase())
         ) {
-          contact.visible = false;
-        }
-        if (this.searchName === "") {
           contact.visible = true;
+        }else{
+          contact.visible = false;
         }
       }
     },
